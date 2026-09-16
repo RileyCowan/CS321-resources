@@ -1,38 +1,45 @@
 /**
- * TODO - complete the summary javadoc for the class here.
+ * Interface for a generic cache whose values provide a key.
+ *
+ * @param <K> type of key used by cached values
+ * @param <V> type of value stored in the cache
  * @author CS321 Instructors
  */
-
 public interface CacheInterface<K, V extends KeyInterface<K>> {
 
     /**
-     * TODO - complete the javadoc here
-     * @param key
-     * @return
+     * Looks up a value by key.
+     *
+     * @param key key to search for
+     * @return matching value, or null if the key is not cached
      */
     public V get(K key);
 
     /**
-     * TODO - complete the javadoc here
-     * @param value
-     * @return
+     * Adds a value to the cache.
+     *
+     * @param value value to add
+     * @return value removed because the cache was full, or null otherwise
      */
     public V add(V value);
 
     /**
-     * TODO - complete the javadoc here
-     * @param key
-     * @return
+     * Removes a value by key.
+     *
+     * @param key key of the value to remove
+     * @return removed value, or null if the key was not found
      */
     public V remove(K key);
 
     /**
-     * TODO - complete the javadoc here
+     * Removes all values from the cache.
      */
     public void clear();
 
     /**
-     * {@inheritDoc} 
+     * Returns a formatted description of cache statistics.
+     *
+     * @return cache statistics
      */
     public String toString();
 }
